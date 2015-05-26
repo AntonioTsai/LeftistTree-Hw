@@ -1,3 +1,2 @@
 # LeftistTree-Hw
-Data Structure Homework
-\nLeftist Tree
+It's Homework~~~
