@@ -8,7 +8,7 @@
 #include <stdlib.h>
 #include "heightBiased.h"
 
-void minMeld(leftistTree *a, leftistTree *b)
+void minMeld_H(leftistTree *a, leftistTree *b)
 {	/*
      meld the two min leftist trees *a and *b.
      The resulting min leftist tree is returned in *a,
@@ -17,11 +17,11 @@ void minMeld(leftistTree *a, leftistTree *b)
     if (!*a)
         *a = *b;
     else if (*b)
-        minUnion(a, b);
+        minUnion_H(a, b);
     *b = NULL;
 }
 
-void minUnion(leftistTree *a, leftistTree *b)
+void minUnion_H(leftistTree *a, leftistTree *b)
 {	/*
      recursively combine two nonempty min leftist trees
      */
@@ -34,7 +34,7 @@ void minUnion(leftistTree *a, leftistTree *b)
     if(!(*a)->rightChild)
         (*a)->rightChild = *b;
     else
-        minUnion(&(*a)->rightChild, b);
+        minUnion_H(&(*a)->rightChild, b);
     
     //leftist tree property
     if(!(*a)->leftChild)
@@ -48,7 +48,7 @@ void minUnion(leftistTree *a, leftistTree *b)
     
 }
 
-void insertNode(int a, leftistTree *root)
+void insertNode_H(int a, leftistTree *root)
 {
     leftistTree node = (leftistTree)malloc(sizeof(struct leftist));
     node->key = a;
@@ -56,10 +56,10 @@ void insertNode(int a, leftistTree *root)
     node->rightChild = NULL;
     node->shortest = 0;
     //printf("%d\n", node->key);
-    minMeld(root, &node);
+    minMeld_H(root, &node);
 }
 
-void deleteNode(leftistTree *root)
+void deleteNode_H(leftistTree *root)
 {
     if (*root) {
         leftistTree toDetele = *root;
@@ -67,7 +67,7 @@ void deleteNode(leftistTree *root)
             free(toDetele);
             (*root) = NULL;
         }
-        minMeld(&(*root)->leftChild, &(*root)->rightChild);
+        minMeld_H(&(*root)->leftChild, &(*root)->rightChild);
         *root = (*root)->leftChild;
         printf("%d\n", toDetele->key);
         free(toDetele);

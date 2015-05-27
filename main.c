@@ -66,11 +66,11 @@ int main(int argc, const char * argv[]) {
         switch (command) {
             case 'i':
                 fscanf(sourse, "%d", &num);
-                insertNode(num, &root);
+                insertNode_H(num, &root);
                 //printf("%d\n", num);
                 break;
             case 'd':
-                deleteNode(&root);
+                deleteNode_H(&root);
                 break;
         }
     }

@@ -14,9 +14,10 @@ struct leftist
     leftistTree	rightChild;
     int key;
     int shortest;
+    int weight;
 };
 
-void minMeld(leftistTree *a, leftistTree *b);
-void minUnion(leftistTree *a, leftistTree *b);
-void insertNode(int a, leftistTree *root);
-void deleteNode(leftistTree *root);
+void minMeld_H(leftistTree *a, leftistTree *b);
+void minUnion_H(leftistTree *a, leftistTree *b);
+void insertNode_H(int a, leftistTree *root);
+void deleteNode_H(leftistTree *root);
