@@ -6,8 +6,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-#include "weightBiased.h"
-#include "heightBiased.h"
+#include "liftistTree.h"
 
 int _print(leftistTree *parent, int is_left, int offset, int depth, char s[20][255]){
     char b[20];
